@@ -1,47 +1,628 @@
-import { COLORS } from './utility';
+import { BATTERY_TYPES, BRANDS, COLORS, FEATURES, KEY_SWITCH, LINES, OS_TYPES, SOFTWARE } from './utility';
 
 export interface Mouse {
     name: string;
-    image: string;
+    images: string[];
+    imagesByColor: { [COLORS: string]: string };
     brand: string;
-    line: string;
-    color: COLORS;
+    line?: string;
+    colors: COLORS[];
     wired: boolean;
+    wireless: boolean;
     usbVersion?: number;
     usbTypeFrom?: string;
     usbTypeTo?: string;
-    wireless: boolean;
     bluetoothVersion?: number;
     radioFrequency?: number;
-    weight: number;
     lighting: boolean;
-    keyswitch: string;
-    auraSync?: boolean;
-    height?: number;
-    width?: number;
+    weight: number;
     length?: number;
+    width?: number;
+    height?: number;
+    buttonCount: number;
+    dpi: number;
+    pollingRate?: number;
+    price: number;
+    features: FEATURES[];
+    keySwitch?: KEY_SWITCH;
+    rightHanded: boolean;
+    leftHanded: boolean;
+    osTypes?: OS_TYPES[];
+    software?: SOFTWARE;
+    batteryLife?: number;
+    batteryType?: BATTERY_TYPES,
+    batteryCount?: number;
 }
 
 export const MICE: Mouse[] = [
     {
         name: 'ROG Harpe Ace Extreme',
-        image: 'assets/images/mice/rog_harpe_ace_extreme.png',
-        brand: 'ASUS',
-        line: 'ROG',
-        color: COLORS.BLACK,
+        images: ['rog_harpe_ace_extreme.png'],
+        imagesByColor: {
+            [COLORS.BLACK]: 'rog_harpe_ace_extreme.png'
+        },
+        brand: BRANDS.ASUS,
+        line: LINES.ROG,
+        colors: [COLORS.BLACK],
         wired: true,
-        usbVersion: 2.1,
-        usbTypeFrom: 'USB-C',
-        usbTypeTo: 'USB-A',
+        wireless: true,
+        usbVersion: 2.0,
+        usbTypeFrom: 'TypeC',
+        usbTypeTo: 'TypeA',
+        bluetoothVersion: 5.1,
+        radioFrequency: 2.4,
+        lighting: true,
+        weight: 47,
+        length: 127.5,
+        width: 63.7,
+        height: 39.6,
+        buttonCount: 5,
+        dpi: 42000,
+        pollingRate: 8000,
+        price: 266.34,
+        features: [
+            FEATURES.AURASYNC,
+            FEATURES.AIMPOINT_PRO,
+            FEATURES.ROG_OPTICAL,
+            FEATURES.CARBON_FIBER,
+            FEATURES.ROG_POLLING_RATE_BOOSTER
+        ],
+        keySwitch: KEY_SWITCH.ROG_100M_OPTICAL_MICRO_SWITCH,
+        rightHanded: true,
+        leftHanded: false,
+        osTypes: [OS_TYPES.WINDOWS10, OS_TYPES.WINDOWS11],
+        software: SOFTWARE.ARMOURY_CRATE
+    },
+    {
+        name: 'ROG Harpe Ace Mini',
+        images: ['rog_harpe_ace_mini.png'],
+        imagesByColor: {
+            [COLORS.BLACK]: 'rog_harpe_ace_mini.png',
+            [COLORS.WHITE]: 'rog_harpe_ace_mini.png',
+        },
+        brand: BRANDS.ASUS,
+        line: LINES.ROG,
+        colors: [COLORS.BLACK, COLORS.WHITE],
+        wired: true,
+        wireless: true,
+        usbVersion: 2.0,
+        usbTypeFrom: 'TypeC',
+        usbTypeTo: 'TypeA',
+        bluetoothVersion: 5.1,
+        radioFrequency: 2.4,
+        lighting: true,
+        weight: 49,
+        length: 117,
+        width: 63,
+        height: 37,
+        buttonCount: 5,
+        dpi: 42000,
+        pollingRate: 8000,
+        price: 99.99,
+        features: [
+            FEATURES.AURASYNC,
+            FEATURES.ROG_OPTICAL,
+            FEATURES.ROG_POLLING_RATE_BOOSTER,
+            FEATURES.AIMPOINT_PRO,
+            FEATURES.SPEEDNOVA
+        ],
+        keySwitch: KEY_SWITCH.ROG_100M_OPTICAL_MICRO_SWITCH,
+        rightHanded: true,
+        leftHanded: false,
+        osTypes: [OS_TYPES.WINDOWS10, OS_TYPES.WINDOWS11],
+        software: SOFTWARE.ARMOURY_CRATE
+    },
+    {
+        name: 'ROG Keris II Ace',
+        images: ['rog_keris_ii_ace.png'],
+        imagesByColor: {
+            [COLORS.BLACK]: 'rog_keris_ii_ace.png',
+            [COLORS.WHITE]: 'rog_keris_ii_ace.png',
+        },
+        brand: BRANDS.ASUS,
+        line: LINES.ROG,
+        colors: [COLORS.BLACK, COLORS.WHITE],
+        wired: true,
+        wireless: true,
+        usbVersion: 2.0,
+        usbTypeFrom: 'TypeC',
+        usbTypeTo: 'TypeA',
+        bluetoothVersion: 5.1,
+        radioFrequency: 2.4,
+        lighting: true,
+        weight: 54,
+        length: 121,
+        width: 67,
+        height: 42,
+        buttonCount: 5,
+        dpi: 42000,
+        pollingRate: 8000,
+        price: 179.99,
+        keySwitch: KEY_SWITCH.ROG_100M_OPTICAL_MICRO_SWITCH,
+        features: [
+            FEATURES.AURASYNC,
+            FEATURES.ROG_POLLING_RATE_BOOSTER,
+            FEATURES.AIMPOINT_PRO,
+            FEATURES.ROG_OPTICAL,
+            FEATURES.SPEEDNOVA
+        ],
+        rightHanded: true,
+        leftHanded: false,
+        osTypes: [OS_TYPES.WINDOWS10, OS_TYPES.WINDOWS11],
+        software: SOFTWARE.ARMOURY_CRATE
+    },
+    {
+        name: 'ROG Gladius III Wireless AimPoint EVA-02 Edition',
+        images: ['rog_gladius_iii_wireless_aimpoint_eva_02_edition.png'],
+        imagesByColor: {
+            [COLORS.BLACK]: 'rog_gladius_iii_wireless_aimpoint_eva_02_edition.png',
+            [COLORS.RED]: 'rog_gladius_iii_wireless_aimpoint_eva_02_edition.png',
+        },
+        brand: BRANDS.ASUS,
+        line: LINES.ROG,
+        colors: [COLORS.BLACK, COLORS.RED],
+        wired: true,
+        wireless: true,
+        usbVersion: 2.0,
+        usbTypeFrom: 'TypeC',
+        usbTypeTo: 'TypeA',
+        bluetoothVersion: 5.2,
+        radioFrequency: 2.4,
+        lighting: true,
+        weight: 79,
+        length: 123,
+        width: 68,
+        height: 44,
+        buttonCount: 5,
+        dpi: 36000,
+        pollingRate: 1000,
+        price: 247.70,
+        keySwitch: KEY_SWITCH.ROG_100M_OPTICAL_MICRO_SWITCH,
+        features: [
+            FEATURES.SPEEDNOVA,
+            FEATURES.AIMPOINT,
+            FEATURES.AURASYNC,
+        ],
+        rightHanded: true,
+        leftHanded: false,
+        osTypes: [OS_TYPES.WINDOWS10, OS_TYPES.WINDOWS11, OS_TYPES.MACOS],
+        software: SOFTWARE.ARMOURY_CRATE
+    },
+    {
+        name: 'ASUS TUF Gaming M3 Gen II',
+        images: ['asus_tuff_gaming_m3_gen_ii.png'],
+        imagesByColor: {
+            [COLORS.BLACK]: 'asus_tuff_gaming_m3_gen_ii.png'
+        },
+        brand: BRANDS.ASUS,
+        line: LINES.TUF,
+        colors: [COLORS.BLACK],
+        wired: true,
+        wireless: false,
+        usbVersion: 2.0,
+        usbTypeFrom: 'TypeC',
+        usbTypeTo: 'TypeA',
+        lighting: true,
+        weight: 59,
+        length: 123,
+        width: 68,
+        height: 40,
+        buttonCount: 6,
+        dpi: 8000,
+        pollingRate: 1000,
+        price: 24.99,
+        features: [
+            FEATURES.IP56,
+            FEATURES.AURASYNC,
+        ],
+        rightHanded: true,
+        leftHanded: false,
+        osTypes: [OS_TYPES.WINDOWS10, OS_TYPES.WINDOWS11],
+        software: SOFTWARE.ARMOURY_CRATE
+    },
+    {
+        name: 'ROG Harpe Ace Aim Lab Edition',
+        images: ['rog_harpe_ace_aim_lab_edition.png'],
+        imagesByColor: {
+            [COLORS.BLACK]: 'rog_harpe_ace_aim_lab_edition.png',
+            [COLORS.WHITE]: 'rog_harpe_ace_aim_lab_edition.png',
+        },
+        brand: BRANDS.ASUS,
+        line: LINES.ROG,
+        colors: [COLORS.BLACK, COLORS.WHITE],
+        wired: true,
+        wireless: true,
+        usbVersion: 2.0,
+        usbTypeFrom: 'TypeC',
+        usbTypeTo: 'TypeA',
+        bluetoothVersion: 5.1,
+        radioFrequency: 2.4,
+        lighting: true,
+        weight: 54,
+        length: 127.5,
+        width: 63.7,
+        height: 39.6,
+        buttonCount: 5,
+        dpi: 36000,
+        pollingRate: 1000,
+        price: 149.99,
+        keySwitch: KEY_SWITCH.ROG_70M_MECHANICAL_SWITCH,
+        features: [
+            FEATURES.AURASYNC,
+            FEATURES.AIMPOINT,
+            FEATURES.SPEEDNOVA,
+            FEATURES.ROG_MICROSWITCHES,
+            FEATURES.AIM_LAB_SETTINGS_OPTIMIZER
+        ],
+        rightHanded: true,
+        leftHanded: false,
+        osTypes: [OS_TYPES.WINDOWS10, OS_TYPES.WINDOWS11],
+        software: SOFTWARE.ARMOURY_CRATE
+    },
+    {
+        name: 'ROG Keris Wireless AimPoint',
+        images: ['rog_keris_wireless_aimpoint.png'],
+        imagesByColor: {
+            [COLORS.BLACK]: 'rog_keris_wireless_aimpoint.png',
+            [COLORS.WHITE]: 'rog_keris_wireless_aimpoint.png',
+        },
+        brand: BRANDS.ASUS,
+        line: LINES.ROG,
+        colors: [COLORS.BLACK, COLORS.WHITE],
+        wired: true,
+        wireless: true,
+        usbVersion: 2.0,
+        usbTypeFrom: 'TypeC',
+        usbTypeTo: 'TypeA',
+        bluetoothVersion: 5.1,
+        radioFrequency: 2.4,
+        lighting: true,
+        weight: 75,
+        length: 118,
+        width: 62,
+        height: 39,
+        buttonCount: 5,
+        dpi: 36000,
+        pollingRate: 1000,
+        price: 103.99,
+        keySwitch: KEY_SWITCH.ROG_70M_MECHANICAL_SWITCH,
+        features: [
+            FEATURES.AIMPOINT,
+            FEATURES.SPEEDNOVA,
+            FEATURES.ROG_MICROSWITCHES
+        ],
+        rightHanded: true,
+        leftHanded: false,
+        osTypes: [OS_TYPES.WINDOWS10, OS_TYPES.WINDOWS11],
+        software: SOFTWARE.ARMOURY_CRATE
+    },
+    {
+        name: 'ROG Chakram X Origin',
+        images: ['rog_chakram_x_origin.png'],
+        imagesByColor: {
+            [COLORS.BLACK]: 'rog_chakram_x_origin.png'
+        },
+        brand: BRANDS.ASUS,
+        line: LINES.ROG,
+        colors: [COLORS.BLACK],
+        wired: true,
+        wireless: true,
+        usbVersion: 2.0,
+        usbTypeFrom: 'TypeC',
+        usbTypeTo: 'TypeA',
+        bluetoothVersion: 5.2,
+        radioFrequency: 2.4,
+        lighting: true,
+        weight: 123,
+        length: 132.7,
+        width: 76.6,
+        height: 42.8,
+        buttonCount: 11,
+        dpi: 36000,
+        pollingRate: 8000,
+        price: 125.99,
+        keySwitch: KEY_SWITCH.ROG_70M_MECHANICAL_SWITCH,
+        features: [
+            FEATURES.AIMPOINT,
+            FEATURES.JOYSTICK,
+            FEATURES.ROG_MICROSWITCHES
+        ],
+        rightHanded: true,
+        leftHanded: false,
+        osTypes: [OS_TYPES.WINDOWS10, OS_TYPES.WINDOWS11],
+        software: SOFTWARE.ARMOURY_CRATE
+    },
+    {
+        name: 'ASUS SmartO Mouse MD200 Silent Plus',
+        images: ['asus_smarto_mouse_m2_silent_plus_green.png'],
+        imagesByColor: {
+            [COLORS.GREEN]: 'asus_smarto_mouse_m2_silent_plus_green.png',
+            [COLORS.OAT_MILK]: 'asus_smarto_mouse_m2_silent_plus_oat_milk.png',
+        },
+        brand: BRANDS.ASUS,
+        colors: [COLORS.GREEN, COLORS.OAT_MILK],
+        wired: false,
+        wireless: true,
+        bluetoothVersion: 5.0,
+        radioFrequency: 2.4,
+        lighting: false,
+        weight: 85,
+        length: 114.5,
+        width: 71,
+        height: 42.3,
+        buttonCount: 6,
+        dpi: 4200,
+        price: 49.99,
+        features: [
+            FEATURES.SILENT
+        ],
+        rightHanded: true,
+        leftHanded: false,
+        osTypes: [OS_TYPES.WINDOWS10, OS_TYPES.WINDOWS11],
+        software: SOFTWARE.ARMOURY_CRATE,
+        batteryLife: 8760,
+        batteryType: BATTERY_TYPES.AA,
+        batteryCount: 1
+    },
+    {
+        name: 'ROG Strix Impact III Wireless',
+        images: ['rog_strix_impact_iii_wireless.png'],
+        imagesByColor: {
+            [COLORS.BLACK]: 'rog_strix_impact_iii_wireless.png',
+            [COLORS.WHITE]: 'rog_strix_impact_iii_wireless.png',
+        },
+        brand: BRANDS.ASUS,
+        line: LINES.ROG,
+        colors: [COLORS.BLACK, COLORS.WHITE],
+        wired: false,
         wireless: true,
         bluetoothVersion: 5.1,
         radioFrequency: 2.4,
-        weight: 47,
         lighting: true,
-        keyswitch: 'ROG 100M Optical Micro Switch',
-        auraSync: true,
+        weight: 57,
+        length: 120,
+        width: 62,
+        height: 39,
+        buttonCount: 4,
+        dpi: 36000,
+        pollingRate: 1000,
+        price: 74.99,
+        keySwitch: KEY_SWITCH.ROG_70M_MECHANICAL_SWITCH,
+        features: [
+            FEATURES.SPEEDNOVA,
+            FEATURES.AIMPOINT,
+            FEATURES.ROG_MICROSWITCHES,
+            FEATURES.ROG_OMNI_RECEIVER,
+            FEATURES.AURASYNC
+        ],
+        rightHanded: true,
+        leftHanded: false,
+        osTypes: [OS_TYPES.WINDOWS10, OS_TYPES.WINDOWS11],
+        software: SOFTWARE.ARMOURY_CRATE,
+        batteryLife: 618,
+        batteryType: BATTERY_TYPES.AA,
+        batteryCount: 1
+    },
+    {
+        name: 'ROG Spatha X',
+        images: ['rog_spatha_x.png'],
+        imagesByColor: {
+            [COLORS.BLACK]: 'rog_spatha_x.png'
+        },
+        brand: BRANDS.ASUS,
+        line: LINES.ROG,
+        colors: [COLORS.BLACK],
+        wired: true,
+        wireless: true,
+        usbVersion: 2.0,
+        usbTypeFrom: 'TypeC',
+        usbTypeTo: 'TypeA',
+        bluetoothVersion: 5.1,
+        radioFrequency: 2.4,
+        lighting: true,
+        weight: 168,
+        length: 137,
+        width: 89,
+        height: 45,
+        buttonCount: 12,
+        dpi: 19000,
+        pollingRate: 1000,
+        price: 169.99,
+        keySwitch: KEY_SWITCH.ROG_70M_MECHANICAL_SWITCH,
+        features: [
+            FEATURES.ROG_MICROSWITCHES,
+            FEATURES.AURASYNC
+        ],
+        rightHanded: true,
+        leftHanded: false,
+        osTypes: [OS_TYPES.WINDOWS10, OS_TYPES.WINDOWS11],
+        software: SOFTWARE.ARMOURY_CRATE,
+        batteryLife: 67,
+        batteryType: BATTERY_TYPES.RECHARGEABLE
+    },
+    {
+        name: 'ROG Gladius III Wireless',
+        images: ['rog_gladius_iii_wireless.png'],
+        imagesByColor: {
+            [COLORS.BLACK]: 'rog_gladius_iii_wireless.png',
+        },
+        brand: BRANDS.ASUS,
+        line: LINES.ROG,
+        colors: [COLORS.BLACK],
+        wired: true,
+        wireless: true,
+        usbVersion: 2.0,
+        usbTypeFrom: 'TypeC',
+        usbTypeTo: 'TypeA',
+        bluetoothVersion: 5.1,
+        radioFrequency: 2.4,
+        lighting: true,
+        weight: 89,
+        length: 123,
+        width: 68,
+        height: 44,
+        buttonCount: 6,
+        dpi: 26000,
+        pollingRate: 1000,
+        price: 89.99,
+        keySwitch: KEY_SWITCH.ROG_MICRO_SWITCH,
+        features: [
+            FEATURES.AURASYNC
+        ],
+        rightHanded: true,
+        leftHanded: false,
+        osTypes: [OS_TYPES.WINDOWS10, OS_TYPES.WINDOWS11],
+        software: SOFTWARE.ARMOURY_CRATE,
+        batteryType: BATTERY_TYPES.RECHARGEABLE
+    },
+    {
+        name: 'TUF Gaming M4 Air',
+        images: ['tuf_gaming_m4_air.png'],
+        imagesByColor: {
+            [COLORS.BLACK]: 'tuf_gaming_m4_air.png',
+        },
+        brand: BRANDS.ASUS,
+        line: LINES.TUF,
+        colors: [COLORS.BLACK],
+        wired: true,
+        wireless: false,
+        usbVersion: 2.0,
+        usbTypeFrom: 'TypeC',
+        usbTypeTo: 'TypeA',
+        lighting: false,
+        weight: 47,
+        length: 126,
+        width: 63.5,
         height: 39.6,
-        width: 63.7,
-        length: 127.5
-    }
+        buttonCount: 6,
+        dpi: 16000,
+        pollingRate: 1000,
+        price: 49.99,
+        features: [
+            FEATURES.IPX6,
+            FEATURES.ASUS_ANTIBACTERIAL
+        ],
+        rightHanded: true,
+        leftHanded: false,
+        osTypes: [OS_TYPES.WINDOWS10, OS_TYPES.WINDOWS11],
+        software: SOFTWARE.ARMOURY_CRATE,
+    },
+    {
+        name: 'TUF Gaming M4 Wireless',
+        images: ['tuf_gaming_m4_wireless.png'],
+        imagesByColor: {
+            [COLORS.BLACK]: 'tuf_gaming_m4_wireless.png',
+        },
+        brand: BRANDS.ASUS,
+        line: LINES.TUF,
+        colors: [COLORS.BLACK],
+        wired: false,
+        wireless: true,
+        bluetoothVersion: 5.1,
+        radioFrequency: 2.4,
+        lighting: false,
+        weight: 62,
+        length: 126,
+        width: 63.5,
+        height: 39.6,
+        buttonCount: 6,
+        dpi: 12000,
+        pollingRate: 1000,
+        price: 70.99,
+        features: [
+            FEATURES.ASUS_ANTIBACTERIAL
+        ],
+        rightHanded: true,
+        leftHanded: true,
+        osTypes: [OS_TYPES.WINDOWS10, OS_TYPES.WINDOWS11],
+        software: SOFTWARE.ARMOURY_CRATE,
+        batteryType: BATTERY_TYPES.AA
+    },
+    {
+        name: 'ProArt Mouse MD300',
+        images: ['proart_mouse_md300.png'],
+        imagesByColor: {
+            [COLORS.BLACK]: 'proart_mouse_md300.png',
+        },
+        brand: BRANDS.ASUS,
+        colors: [COLORS.BLACK],
+        wired: false,
+        wireless: true,
+        bluetoothVersion: 5.1,
+        radioFrequency: 2.4,
+        lighting: false,
+        weight: 109,
+        length: 118,
+        width: 72,
+        height: 42,
+        buttonCount: 6,
+        dpi: 4200,
+        pollingRate: 1000,
+        price: 70.99,
+        keySwitch: KEY_SWITCH.OMRON_D2FC_F_K,
+        features: [
+            FEATURES.ASUS_DIAL
+        ],
+        rightHanded: true,
+        leftHanded: false,
+        osTypes: [OS_TYPES.WINDOWS10, OS_TYPES.WINDOWS11],
+        software: SOFTWARE.ARMOURY_CRATE,
+        batteryType: BATTERY_TYPES.LI_ION_800,
+        batteryLife: 3600
+    },
+];
+
+export const OLDMICE: any[] = [
+    // {
+    //     name: 'GX1000 Eagle Eye',
+    //     image: 'gx1000_eagle_eye.png',
+    //     brand: 'ASUS',
+    //     line: 'ROG',
+    //     colors: [COLORS.BLACK],
+    //     wired: true,
+    //     usbVersion: 2.0,
+    //     usbTypeFrom: 'TypeC',
+    //     usbTypeTo: 'TypeA',
+    //     wireless: true,
+    //     bluetoothVersion: 5.2,
+    //     radioFrequency: 2.4,
+    //     weight: 123,
+    //     lighting: true,
+    //     keyswitch: 'ROG 70M Mechanical Switch',
+    //     auraSync: true,
+    //     height: 42.8,
+    //     width: 76.6,
+    //     length: 132.7,
+    //     price: 125.99,
+    //     dpi: 82000,
+    //     pollingRate: 8000,
+    //     programmableButtonsCount: 11,
+    //     batteryLife: 150,
+    //     rightHanded: true,
+    // },
+    // {
+    //     name: 'ASUS Fragrance Mouse MD101',
+    //     image: 'asus_fragrance_mouse_md101_white.png',
+    //     imagesByColor: {
+    //         [COLORS.WHITE]: 'asus_fragrance_mouse_md101_white.png',
+    //         [COLORS.PINK]: 'asus_fragrance_mouse_md101_pink.png',
+    //     },
+    //     brand: 'ASUS',
+    //     colors: [COLORS.WHITE, COLORS.PINK],
+    //     wired: false,
+    //     wireless: true,
+    //     bluetoothVersion: 5.0,
+    //     radioFrequency: 2.4,
+    //     weight: 85,
+    //     lighting: false,
+    //     height: 40.2,
+    //     width: 62.4,
+    //     length: 103.6,
+    //     price: 49.99,
+    //     dpi: 2400,
+    //     batteryLife: 8760,
+    //     batteryType: 'AA',
+    //     batteryCount: 1
+    // },
+
 ];

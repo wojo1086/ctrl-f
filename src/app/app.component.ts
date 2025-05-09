@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MICE } from '../assets/data/mice';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -12,5 +11,5 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     styleUrl: './app.component.sass'
 })
 export class AppComponent {
-    readonly mice  = MICE;
+
 }

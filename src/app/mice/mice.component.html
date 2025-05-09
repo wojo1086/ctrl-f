@@ -1,1 +1,238 @@
-<p>mice works!</p>
+<div class="flex">
+    <aside class="px-4 pb-4">
+        <form [formGroup]="filterForm">
+            <h4>Brands</h4>
+            @for (brandsCheckbox of brandsCheckboxes.controls; track $index) {
+                <div class="field-checkbox text-sm" formArrayName="brands">
+                    <p-checkbox inputId="brand-{{$index}}" [formControlName]="$index" binary />
+                    <label for="brand-{{$index}}" class="ml-2">{{brands[$index]}}</label>
+                </div>
+            }
+
+            <h4>Product Lines</h4>
+            @for (linesCheckbox of linesCheckboxes.controls; track $index) {
+                <div class="field-checkbox text-sm" formArrayName="lines">
+                    <p-checkbox inputId="line-{{$index}}" [formControlName]="$index" binary />
+                    <label for="line-{{$index}}" class="ml-2">{{productLines[$index]}}</label>
+                </div>
+            }
+
+            <h4>Price</h4>
+            <div class="flex">
+                <p class="flex-1 m-0 pb-3">${{filterForm.get('price')?.value[0]}}</p>
+                <p class="m-0 pb-3">${{filterForm.get('price')?.value[1]}}</p>
+            </div>
+            <p-slider formControlName="price" range [step]="1" [min]="0" [max]="maxPrice" />
+
+            <h4>Connectivity</h4>
+            <div class="field-checkbox text-sm">
+                <p-checkbox inputId="usb" formControlName="usb" [binary]="true" />
+                <label for="usb" class="ml-2">USB</label>
+            </div>
+            <div class="field-checkbox text-sm">
+                <p-checkbox inputId="bluetooth" formControlName="bluetooth" [binary]="true" />
+                <label for="bluetooth" class="ml-2">Bluetooth</label>
+            </div>
+            <div class="field-checkbox text-sm">
+                <p-checkbox inputId="rf" formControlName="rf" [binary]="true" />
+                <label for="rf" class="ml-2">Radio Frequency</label>
+            </div>
+
+            <h4>Lighting</h4>
+            <div class="field-checkbox text-sm">
+                <p-checkbox inputId="lighting-yes" formControlName="lightingYes" [binary]="true" />
+                <label for="lighting-yes" class="ml-2">Yes</label>
+            </div>
+            <div class="field-checkbox text-sm">
+                <p-checkbox inputId="lighting-no" formControlName="lightingNo" [binary]="true" />
+                <label for="lighting-no" class="ml-2">No</label>
+            </div>
+
+            <h4>Hand Orientation</h4>
+            <div class="field-checkbox text-sm">
+                <p-checkbox inputId="hand-ambi" formControlName="ambidextrous" [binary]="true" />
+                <label for="hand-ambi" class="ml-2">Ambidextrous</label>
+            </div>
+            <div class="field-checkbox text-sm">
+                <p-checkbox inputId="hand-right" formControlName="rightHanded" [binary]="true" />
+                <label for="hand-right" class="ml-2">Right Handed</label>
+            </div>
+            <div class="field-checkbox text-sm">
+                <p-checkbox inputId="hand-left" formControlName="leftHanded" [binary]="true" />
+                <label for="hand-left" class="ml-2">Left Handed</label>
+            </div>
+
+            <h4>Color</h4>
+            <div class="flex flex-wrap gap-2 color-options">
+                @for (color of colors; track $index) {
+                    <div [style.background-color]="color" (click)="selectColor($event, color)"
+                         [pTooltip]="colorNames[color]" tooltipPosition="top"
+                         class="color-option border-round-sm surface-border border-1 cursor-pointer"></div>
+                }
+            </div>
+
+            <h4>Weight</h4>
+            <div class="flex">
+                <p class="flex-1 m-0 pb-3">{{filterForm.get('weight')?.value[0]}}g</p>
+                <p class="m-0 pb-3">{{filterForm.get('weight')?.value[1]}}g</p>
+            </div>
+            <p-slider formControlName="weight" range [step]="1" [min]="0" [max]="maxWeight" />
+
+            <h4>Operating System</h4>
+            @for (osTypesCheckbox of osTypesCheckboxes.controls; track $index) {
+                <div class="field-checkbox text-sm" formArrayName="osTypes">
+                    <p-checkbox inputId="os-{{$index}}" [formControlName]="$index" binary />
+                    <label for="os-{{$index}}" class="ml-2">{{osTypes[$index]}}</label>
+                </div>
+            }
+
+            <h4>Button Count</h4>
+            <div class="flex flex-wrap gap-2 button-count-options">
+                @for (num of numOfButtonsAsString; track $index) {
+                    <div class="border-1 surface-border border-round-sm cursor-pointer flex align-items-center justify-content-center"
+                         (click)="selectNumOfButtons($event, num)">
+                        {{num}}
+                    </div>
+                }
+            </div>
+
+            <h4>Features</h4>
+            @for (featuresCheckbox of featuresCheckboxes.controls; track $index) {
+                <div class="field-checkbox text-sm" formArrayName="features">
+                    <p-checkbox inputId="feature-{{$index}}" [formControlName]="$index" binary />
+                    <label for="feature-{{$index}}" class="ml-2">{{features[$index]}}</label>
+                </div>
+            }
+
+            <h4>DPI</h4>
+            <div class="flex">
+                <p class="flex-1 m-0 pb-3">{{filterForm.get('dpi')?.value[0]}}</p>
+                <p class="m-0 pb-3">{{filterForm.get('dpi')?.value[1]}}</p>
+            </div>
+            <p-slider formControlName="dpi" range [step]="1000" [min]="0" [max]="maxDPI" />
+
+            <h4>Polling Rate</h4>
+            <div class="flex">
+                <p class="flex-1 m-0 pb-3">{{filterForm.get('pollingRate')?.value[0]}} Hz</p>
+                <p class="m-0 pb-3">{{filterForm.get('pollingRate')?.value[1]}} Hz</p>
+            </div>
+            <p-slider formControlName="pollingRate" range [step]="100" [min]="0" [max]="maxPollingRate" />
+
+            <h4>Key Switches</h4>
+            @for (keySwitchCheckbox of keySwitchCheckboxes.controls; track $index) {
+                <div class="field-checkbox text-sm" formArrayName="keySwitch">
+                    <p-checkbox inputId="keySwitch-{{$index}}" [formControlName]="$index" binary />
+                    <label for="keySwitch-{{$index}}" class="ml-2">{{keySwitch[$index]}}</label>
+                </div>
+            }
+
+            <h4>Software</h4>
+            @for (softwareCheckbox of softwareCheckboxes.controls; track $index) {
+                <div class="field-checkbox text-sm" formArrayName="software">
+                    <p-checkbox inputId="software-{{$index}}" [formControlName]="$index" binary />
+                    <label for="software-{{$index}}" class="ml-2">{{software[$index]}}</label>
+                </div>
+            }
+        </form>
+    </aside>
+    <main class="flex-1 px-2">
+        <p-data-view #dv [value]="filteredMice()"[rows]="10"
+                     [sortField]="sortField" [sortOrder]="sortOrder"
+                     paginator [rowsPerPageOptions]="[10, 20, 50]">
+            <ng-template #header>
+                <div>
+                    <p-select
+                        [options]="sortOptions"
+                        placeholder="Sort By Price"
+                        (onChange)="onSortChange($event)"
+                        styleClass="mb-2 md:mb-0"
+                    />
+                </div>
+            </ng-template>
+            <ng-template #list let-items>
+                @for (item of items; track $index; let first = $first) {
+                    <div class="flex gap-4 p-4" [ngClass]="{ 'border-top-1 surface-border': !first }">
+                        <div>
+                            <div class="image-container">
+                                <img
+                                    class="block xl:block mx-auto border-round w-full"
+                                    [ngSrc]="item.imagesByColor[item.colors[0]]"
+                                    width="150"
+                                    height="150"
+                                    priority
+                                    [alt]="item.name"
+                                />
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm m-0">{{ item.brand }}</p>
+                            <p class="text-xl">{{ item.name }}</p>
+                        </div>
+                        <div class="flex flex-column">
+                            <p class="m-0 flex-1 text-xl text-right font-bold">${{item.price | number: '1.2-2'}}</p>
+                            <p-button
+                                icon="pi pi-shopping-cart"
+                                class="whitespace-nowrap"
+                                label="Buy Now"
+                                [disabled]="item.inventoryStatus === 'OUTOFSTOCK'"
+                            />
+                        </div>
+                    </div>
+                }
+            </ng-template>
+        </p-data-view>
+    </main>
+</div>
+
+
+
+<!--<p-data-view #dv [value]="filteredMice()">-->
+<!--    <ng-template #list let-items>-->
+<!--        <div class="grid grid-cols-12 gap-4 grid-nogutter">-->
+<!--            @for (item of items; track $index; let first = $first) {-->
+<!--                <div class="flex">-->
+<!--                    <div></div>-->
+<!--                    <div></div>-->
+<!--                    <div></div>-->
+<!--                </div>-->
+
+
+<!--                <div class="col-span-12">-->
+<!--                    <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4 flex-1"-->
+<!--                         [ngClass]="{ 'border-t border-surface-200 dark:border-surface-700': !first }"-->
+<!--                    >-->
+<!--                        <div class="md:w-40 relative">-->
+<!--                            <img-->
+<!--                                class="block xl:block mx-auto border-round w-full"-->
+<!--                                [src]="item.image"-->
+<!--                                [alt]="item.name"-->
+<!--                            />-->
+<!--                        </div>-->
+<!--                        <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">-->
+<!--                            <div class="flex flex-row md:flex-col justify-between items-start gap-2 flex-1">-->
+<!--                                <div>-->
+<!--                                    <span class="font-medium text-secondary text-sm">{{ item.brand }}</span>-->
+<!--                                    <div class="text-lg font-medium text-surface-900 dark:text-surface-0 mt-2">{{ item.name }}</div>-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+<!--                            <div class="flex flex-col md:items-end gap-8">-->
+<!--                                &lt;!&ndash;                            <span class="text-xl font-semibold text-surface-900 dark:text-surface-0">{{&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                    '$' + item.price&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                }}</span>&ndash;&gt;-->
+<!--                                <div class="flex flex-row-reverse md:flex-row gap-2">-->
+<!--                                    <p-button-->
+<!--                                        icon="pi pi-shopping-cart"-->
+<!--                                        class="flex-auto md:flex-initial whitespace-nowrap"-->
+<!--                                        label="Buy Now"-->
+<!--                                        [disabled]="item.inventoryStatus === 'OUTOFSTOCK'"-->
+<!--                                    />-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            }-->
+<!--        </div>-->
+<!--    </ng-template>-->
+<!--</p-data-view>-->
