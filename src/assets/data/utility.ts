@@ -5,7 +5,9 @@ export enum COLORS {
     SILVER = '#c0c0c0',
     GREEN = '#00ff00',
     OAT_MILK = '#E5DCCE',
-    PINK = '#FFC0CB'
+    PINK = '#FFC0CB',
+    GRAPHITE = '#3C4244',
+    PALE_GREY = '#ECEDEF'
 }
 
 export const COLORS_NAMES = {
@@ -15,7 +17,9 @@ export const COLORS_NAMES = {
     '#c0c0c0': 'Silver',
     '#00ff00': 'Green',
     '#E5DCCE': 'Oat Milk',
-    '#FFC0CB': 'Pink'
+    '#FFC0CB': 'Pink',
+    '#3C4244': 'Graphite',
+    '#ECEDEF': 'Pale Grey'
 };
 
 export enum BRANDS {
@@ -24,14 +28,16 @@ export enum BRANDS {
 }
 export enum LINES {
     ROG = 'ROG',
-    TUF = 'TUF'
+    TUF = 'TUF',
+    MASTER_SERIES = 'Master Series',
 }
 
 export enum BATTERY_TYPES {
     AA = 'AA',
     AAA = 'AAA',
     RECHARGEABLE = 'Rechargeable',
-    LI_ION_800 = 'Li-ion 800mAh'
+    LI_ION = 'Li-Ion',
+    LI_PO = 'LI-Po'
 }
 
 export enum FEATURES {
@@ -50,7 +56,8 @@ export enum FEATURES {
     JOYSTICK = 'Joystick',
     SILENT = 'Silent',
     ROG_OMNI_RECEIVER = 'ROG Omni Receiver',
-    ASUS_DIAL = 'ASUS Dial'
+    ASUS_DIAL = 'ASUS Dial',
+    ERGONOMIC = 'Ergonomic',
 }
 
 export enum KEY_SWITCH {
@@ -66,8 +73,12 @@ export enum OS_TYPES {
     MACOS = 'Mac',
     LINUX = 'Linux',
     CHROMEOS = 'Chrome OS',
+    IPADOS_14 = 'iPadOS 14',
+    IPADOS_13_4 = 'iPadOS 13.4',
+    ANDROID_8 = 'Android 8'
 }
 
 export enum SOFTWARE {
-    ARMOURY_CRATE = 'Armoury Crate'
+    ARMOURY_CRATE = 'Armoury Crate',
+    LOGI_OPTIONS_PLUS = 'Logi Options+',
 }
