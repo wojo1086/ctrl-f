@@ -42,13 +42,13 @@ import { Select } from 'primeng/select';
 export class MiceComponent implements OnInit {
     private readonly fb = inject(FormBuilder);
     readonly mice  = MICE;
-    readonly brands: string[] = Object.values(BRANDS);
-    readonly productLines: string[] = Object.values(LINES);
-    readonly osTypes = Object.values(OS_TYPES);
+    readonly brands: string[] = Object.values(BRANDS).sort();
+    readonly productLines: string[] = Object.values(LINES).sort();
+    readonly osTypes = Object.values(OS_TYPES).sort();
     readonly colors = Object.values(COLORS);
-    readonly features = Object.values(FEATURES);
-    readonly software = Object.values(SOFTWARE);
-    readonly keySwitch = Object.values(KEY_SWITCH);
+    readonly features = Object.values(FEATURES).sort();
+    readonly software = Object.values(SOFTWARE).sort();
+    readonly keySwitch = Object.values(KEY_SWITCH).sort();
     readonly colorNames = COLORS_NAMES;
     readonly numOfButtons = this.mice.map(mouse => mouse.buttonCount)
         .reduce((a, b) => Math.max(a, b));

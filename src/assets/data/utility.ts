@@ -7,7 +7,8 @@ export enum COLORS {
     OAT_MILK = '#E5DCCE',
     PINK = '#FFC0CB',
     GRAPHITE = '#3C4244',
-    PALE_GREY = '#ECEDEF'
+    PALE_GREY = '#ECEDEF',
+    YELLOW = '#FFFF00'
 }
 
 export const COLORS_NAMES = {
@@ -19,13 +20,17 @@ export const COLORS_NAMES = {
     '#E5DCCE': 'Oat Milk',
     '#FFC0CB': 'Pink',
     '#3C4244': 'Graphite',
-    '#ECEDEF': 'Pale Grey'
+    '#ECEDEF': 'Pale Grey',
+    '#FFFF00': 'Yellow'
 };
 
 export enum BRANDS {
     ASUS = 'ASUS',
-    LOGITECH = 'Logitech'
+    LOGITECH = 'Logitech',
+    RAZER = 'Razer',
+    CORSAIR = 'Corsair'
 }
+
 export enum LINES {
     ROG = 'ROG',
     TUF = 'TUF',
@@ -58,6 +63,7 @@ export enum FEATURES {
     ROG_OMNI_RECEIVER = 'ROG Omni Receiver',
     ASUS_DIAL = 'ASUS Dial',
     ERGONOMIC = 'Ergonomic',
+    LOGI_BOLT = 'Logi Bolt USB Receiver Compatible'
 }
 
 export enum KEY_SWITCH {
@@ -70,7 +76,7 @@ export enum KEY_SWITCH {
 export enum OS_TYPES {
     WINDOWS10 = 'Windows 10',
     WINDOWS11 = 'Windows 11',
-    MACOS = 'Mac',
+    MACOS = 'MacOS',
     LINUX = 'Linux',
     CHROMEOS = 'Chrome OS',
     IPADOS_14 = 'iPadOS 14',

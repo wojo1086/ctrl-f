@@ -650,6 +650,53 @@ export const MICE: Mouse[] = [
         batteryType: BATTERY_TYPES.LI_PO,
         batteryCapacity: 240,
     },
+    {
+        name: 'MX Anywhere 3S',
+        images: [
+            'mx_anywhere_3s_graphite.webp',
+            'mx_anywhere_3s_black.webp',
+            'mx_anywhere_3s_pink.webp',
+            'mx_anywhere_3s_pale_grey.webp'
+        ],
+        imagesByColor: {
+            [COLORS.GRAPHITE]: 'mx_anywhere_3s_graphite.webp',
+            [COLORS.BLACK]: 'mx_anywhere_3s_black.webp',
+            [COLORS.PINK]: 'mx_anywhere_3s_pink.webp',
+            [COLORS.PALE_GREY]: 'mx_anywhere_3s_pale_grey.webp',
+        },
+        brand: BRANDS.LOGITECH,
+        colors: [COLORS.GRAPHITE, COLORS.BLACK, COLORS.PINK, COLORS.PALE_GREY],
+        wired: true,
+        wireless: true,
+        bluetoothVersion: 4.2,
+        radioFrequency: 2.4,
+        lighting: false,
+        weight: 99,
+        length: 100.5,
+        width: 65,
+        height: 34.4,
+        buttonCount: 6,
+        dpi: 8000,
+        price: 89.99,
+        features: [
+            FEATURES.LOGI_BOLT,
+            FEATURES.SILENT
+        ],
+        rightHanded: true,
+        leftHanded: false,
+        osTypes: [
+            OS_TYPES.WINDOWS10,
+            OS_TYPES.WINDOWS11,
+            OS_TYPES.MACOS,
+            OS_TYPES.CHROMEOS,
+            OS_TYPES.LINUX,
+            OS_TYPES.IPADOS_13_4,
+            OS_TYPES.ANDROID_8
+        ],
+        software: SOFTWARE.LOGI_OPTIONS_PLUS,
+        batteryType: BATTERY_TYPES.LI_PO,
+        batteryCapacity: 500,
+    },
 ];
 
 // {
